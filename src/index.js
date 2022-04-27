@@ -1,7 +1,8 @@
+import './style.css';
 import Enter from './enter.svg';
 import Refresh from './refresh.svg';
 import Option from './dots.svg';
-import './style.css';
+
 
 const taskList = document.querySelector('.tasks');
 const header = document.querySelector('.header');
