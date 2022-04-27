@@ -3,7 +3,6 @@ import Enter from './enter.svg';
 import Refresh from './refresh.svg';
 import Option from './dots.svg';
 
-
 const taskList = document.querySelector('.tasks');
 const header = document.querySelector('.header');
 const add = document.querySelector('.add');
