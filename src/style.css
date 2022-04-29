@@ -38,7 +38,7 @@ body {
 .add img,
 .header img,
 .tasks img {
-  height: 1vw;
+  height: 1.4vw;
   cursor: pointer;
 }
 
