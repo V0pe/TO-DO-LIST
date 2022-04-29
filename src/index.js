@@ -2,10 +2,9 @@ import './style.css';
 import Enter from './enter.svg';
 import Refresh from './refresh.svg';
 
+import Engagement from './app.js';
 
 const header = document.querySelector('.header');
-const add = document.querySelector('.add');
-
 
 const refreshIcon = new Image();
 refreshIcon.src = Refresh;
@@ -16,9 +15,6 @@ enterIcon.src = Enter;
 const formBtn = document.querySelector('.todo-button');
 formBtn.appendChild(enterIcon);
 
-
-import Engagement from './app.js'
-
-let Engage = new Engagement;
+const Engage = new Engagement();
 
 Engage.action();

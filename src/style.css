@@ -83,31 +83,36 @@ body {
   cursor: pointer;
 }
 
-
-  .deleteOption {
-    display:none;
+.deleteOption {
+  display: none;
 }
 
 .editMode {
-    background-color: rgb(190, 177, 112, 0.8);
+  background-color: rgb(190, 177, 112, 0.8);
 }
 
 .show {
-    display:block;
+  display: block;
 }
 
 .hide {
-    display: none;
+  display: none;
 }
 
-.todo-list{
-    list-style: none;
-    padding: 0;
+.todo-list {
+  list-style: none;
+  padding: 0;
 }
 
-.newformadd input{
+.newformadd input {
+  outline: none;
+  border: none;
+  background-color: var(--primary);
+  font-size: 2vw;
+}
+
+.todo-button {
+    background: none;
     outline: none;
-    border: none;
-    background-color: var(--primary);
-
+    border:none;
 }
