@@ -39,16 +39,20 @@ body {
 .header img,
 .tasks img {
   height: 1vw;
+  cursor: pointer;
 }
 
 .add input {
   border: none;
+  outline: none;
+  line-height: 2.5vw;
 }
 
 .add input::placeholder {
   font-style: italic;
   font-size: 1.3vw;
   color: grey;
+  border: none;
 }
 
 .task {
@@ -76,4 +80,5 @@ body {
   margin: auto;
   color: grey;
   font-size: 1.7vw;
+  cursor: pointer;
 }
