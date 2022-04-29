@@ -12,7 +12,9 @@ refreshIcon.src = Refresh;
 header.appendChild(refreshIcon);
 const enterIcon = new Image();
 enterIcon.src = Enter;
-add.appendChild(enterIcon);
+
+const formBtn = document.querySelector('.todo-button');
+formBtn.appendChild(enterIcon);
 
 
 import Engagement from './app.js'
