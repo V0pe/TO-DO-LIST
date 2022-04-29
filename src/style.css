@@ -38,17 +38,21 @@ body {
 .add img,
 .header img,
 .tasks img {
-  height: 1vw;
+  height: 1.4vw;
+  cursor: pointer;
 }
 
 .add input {
   border: none;
+  outline: none;
+  line-height: 2.5vw;
 }
 
 .add input::placeholder {
   font-style: italic;
   font-size: 1.3vw;
   color: grey;
+  border: none;
 }
 
 .task {
@@ -76,4 +80,39 @@ body {
   margin: auto;
   color: grey;
   font-size: 1.7vw;
+  cursor: pointer;
+}
+
+.deleteOption {
+  display: none;
+}
+
+.editMode {
+  background-color: rgb(190, 177, 112, 0.8);
+}
+
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
+}
+
+.todo-list {
+  list-style: none;
+  padding: 0;
+}
+
+.newformadd input {
+  outline: none;
+  border: none;
+  background-color: var(--primary);
+  font-size: 2vw;
+}
+
+.todo-button {
+  background: none;
+  outline: none;
+  border: none;
 }
