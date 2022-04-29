@@ -1,3 +1,6 @@
+import Option from './dots.svg';
+import Trash from './trash.svg';
+
 class Engagement {
     constructor(){
         if (localStorage.getItem('tasks-storage') === null) {
@@ -13,6 +16,7 @@ class Engagement {
 
     display(description, index){
         
+        
         const todoList = document.querySelector('.todo-list');
         if(description !== ""){
             const templateHTML = `
@@ -20,8 +24,8 @@ class Engagement {
             <input id="${index}" data="${description}" name="checkbox" type="checkbox">
            
             <p id="${index}" data="${description}"class="body-task">${description}</p>
-            <img id="${index}" data="${description}" class = "taskOption" src="./dots.svg" alt="">
-            <img id="${index}" data="${description}" class = "deleteOption" src="./trash.svg" alt="">
+            <img id="${index}" data="${description}" class = "taskOption" src="${Option}" alt="">
+            <img id="${index}" data="${description}" class = "deleteOption" src="${Trash}" alt="">
         </div>`;
         
         todoList.insertAdjacentHTML("beforeend", templateHTML);
