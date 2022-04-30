@@ -104,6 +104,7 @@ class Engagement {
     }
 
     if (item.classList[0] === 'checkbox') {
+      if (item.checked) {
       const index = e.target.parentElement.innerText;
       this.storage = JSON.parse(localStorage.getItem('tasks-storage'));
       for (let i = 0; i < this.storage.length; i++) {
@@ -127,6 +128,7 @@ class Engagement {
             window.location.reload();
           });
         }
+       }
       }
     }
     this.storage = JSON.parse(localStorage.getItem('tasks-storage'));
