@@ -18,7 +18,7 @@ class Engagement {
     if (description !== '') {
       const templateHTML = `
             <div class="task" id="${index}">
-            <input id="${index}" data="${description}" name="checkbox" type="checkbox">
+            <input class="checkbox" id="${index}" data="${description}" name="checkbox" type="checkbox">
            
             <p id="${index}" data="${description}"class="body-task">${description}</p>
             <img id="${index}" data="${description}" class = "taskOption" src="${Option}" alt="">
@@ -55,13 +55,11 @@ class Engagement {
           const deleteOption = document.querySelectorAll('.deleteOption');
           deleteOption[inde].classList.add('show');
           deleteOption[inde].addEventListener('click', () => {
-            for (let j = 0; j < this.storage.length; j++) {
-              if (inde < j) {
-                this.storage[j].index -= 1;
-              }
-            }
             e.target.parentElement.remove();
             this.storage.splice(inde, 1);
+            for (let i = 0; i < this.storage.length; i++) {
+              this.storage[i].index = i + 1;
+            }
             localStorage.setItem('tasks-storage', JSON.stringify(this.storage));
             const todoList = document.querySelector('.todo-list');
             todoList.innerHTML = '';
@@ -102,6 +100,31 @@ class Engagement {
         }
       });
     }
+
+    if (item.classList[0] === 'checkbox') {
+      const index = e.target.parentElement.innerText;
+      this.storage = JSON.parse(localStorage.getItem('tasks-storage'));
+      for (let i = 0; i < this.storage.length; i++) {
+        if (this.storage[i].description === index) {
+          const inde = this.storage.indexOf(this.storage[i]);
+          const checkOption = document.querySelectorAll('.body-task');
+          checkOption[inde].classList.toggle('strike');
+          this.storage[i].completed = !this.storage[i].completed;
+          localStorage.setItem('tasks-storage', JSON.stringify(this.storage));
+          const clearall = document.querySelector('button[type=button]');
+          clearall.addEventListener('click', () => {
+            this.storage = this.storage.filter((check) => check.completed === false);
+            for (let i = 0; i < this.storage.length; i++) {
+              this.storage[i].index = i + 1;
+            }
+            localStorage.setItem('tasks-storage', JSON.stringify(this.storage));
+            const todoList = document.querySelector('.todo-list');
+            todoList.innerHTML = '';
+            window.location.reload();
+          });
+        }
+      }
+    }
     this.storage = JSON.parse(localStorage.getItem('tasks-storage'));
   }
 
@@ -116,7 +139,9 @@ class Engagement {
         completed: false,
         index: `${this.storage.length + 1}`,
       };
-      this.storage.push(inputTask);
+      if (inputTask.description !== '') {
+        this.storage.push(inputTask);
+      }
       localStorage.setItem('tasks-storage', JSON.stringify(this.storage));
       todoList.innerHTML = '';
       this.gettasks();
