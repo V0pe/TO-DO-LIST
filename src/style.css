@@ -116,3 +116,8 @@ body {
   outline: none;
   border: none;
 }
+
+.strike {
+    text-decoration: line-through;
+    opacity: 0.7;
+}
