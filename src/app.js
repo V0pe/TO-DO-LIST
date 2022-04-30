@@ -105,30 +105,30 @@ class Engagement {
 
     if (item.classList[0] === 'checkbox') {
       if (item.checked) {
-      const index = e.target.parentElement.innerText;
-      this.storage = JSON.parse(localStorage.getItem('tasks-storage'));
-      for (let i = 0; i < this.storage.length; i++) {
-        if (this.storage[i].description === index) {
-          const inde = this.storage.indexOf(this.storage[i]);
-          const checkOption = document.querySelectorAll('.body-task');
-          checkOption[inde].classList.add('strike');
-          this.storage[i].completed = true;
-          for (let j = 0; j < this.storage.length; j++) {
-            if (inde < j) {
-              this.storage[j].index -= 1;
+        const index = e.target.parentElement.innerText;
+        this.storage = JSON.parse(localStorage.getItem('tasks-storage'));
+        for (let i = 0; i < this.storage.length; i++) {
+          if (this.storage[i].description === index) {
+            const inde = this.storage.indexOf(this.storage[i]);
+            const checkOption = document.querySelectorAll('.body-task');
+            checkOption[inde].classList.add('strike');
+            this.storage[i].completed = true;
+            for (let j = 0; j < this.storage.length; j++) {
+              if (inde < j) {
+                this.storage[j].index -= 1;
+              }
             }
-          }
-          localStorage.setItem('tasks-storage', JSON.stringify(this.storage));
-          const clearall = document.querySelector('button[type=button]');
-          clearall.addEventListener('click', () => {
-            this.storage = this.storage.filter((check) => check.completed === false);
             localStorage.setItem('tasks-storage', JSON.stringify(this.storage));
-            const todoList = document.querySelector('.todo-list');
-            todoList.innerHTML = '';
-            window.location.reload();
-          });
+            const clearall = document.querySelector('button[type=button]');
+            clearall.addEventListener('click', () => {
+              this.storage = this.storage.filter((check) => check.completed === false);
+              localStorage.setItem('tasks-storage', JSON.stringify(this.storage));
+              const todoList = document.querySelector('.todo-list');
+              todoList.innerHTML = '';
+              window.location.reload();
+            });
+          }
         }
-       }
       }
     }
     this.storage = JSON.parse(localStorage.getItem('tasks-storage'));
