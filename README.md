@@ -13,7 +13,7 @@ click here to see deployed live version
 - [ ] Clear completed tasks
 
 ### Live recording
-- The live recording can be accessed [here](https://www.loom.com/share/a8b400a6cb954b4f8477673786f7a720)
+- The live recording can be accessed [here](https://www.loom.com/share/217a10485338401e80442c7e2ffe9493)
 
 ![image](https://user-images.githubusercontent.com/61356487/165974075-47909341-ece0-4e5f-902a-29dc6c8c0899.png)
 

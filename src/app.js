@@ -128,13 +128,6 @@ class Engagement {
     this.storage = JSON.parse(localStorage.getItem('tasks-storage'));
   }
 
-  reset = () => {
-    for (let i = 0; i < this.storage.length; i++) {
-      this.storage[i].index = i;
-    }
-    localStorage.setItem('tasks-storage', JSON.stringify(this.storage));
-  }
-
   action() {
     const todoInput = document.querySelector('#detail');
     const todoButton = document.querySelector('.todo-button');
