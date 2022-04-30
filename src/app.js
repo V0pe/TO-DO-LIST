@@ -102,6 +102,35 @@ class Engagement {
         }
       });
     }
+
+    if (item.classList[0] === 'checkbox'){
+        let index = e.target.parentElement.innerText;
+        this.storage = JSON.parse(localStorage.getItem('tasks-storage'));
+        for (let i=0;i<this.storage.length;i++) {
+          if (this.storage[i].description === index){
+              let inde = this.storage.indexOf(this.storage[i]);
+              let checkOption = document.querySelectorAll('.body-task');
+              checkOption[inde].classList.add('strike'); 
+              this.storage[i].completed = true;
+              localStorage.setItem('tasks-storage', JSON.stringify(this.storage));  
+          }
+        }
+        
+        let clearall = document.querySelector('button[type=button]');
+        clearall.addEventListener('click', () => {
+            for(let j=0; j< this.storage.length; j++){
+                let check = this.storage[j].completed;
+                this.storage = this.storage.filter(() => {check === true})
+                localStorage.setItem('tasks-storage', JSON.stringify(this.storage));
+                const todoList = document.querySelector('.todo-list');
+                todoList.innerHTML = '';
+                window.location.reload();
+
+            }
+            
+
+        })
+    }
     this.storage = JSON.parse(localStorage.getItem('tasks-storage'));
   }
 
