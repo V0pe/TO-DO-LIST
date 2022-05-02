@@ -16,7 +16,6 @@ module.exports = {
   output: {
     filename: 'main.js',
     path: '/',
-
     clean: true,
   },
   module: {
