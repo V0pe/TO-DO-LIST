@@ -5,15 +5,11 @@ import Trash from './trash.svg';
 
 class Engagement {
   constructor() {
-    if (localStorage.getItem('tasks-storage') === null) {
-      this.storage = [];
-    } else {
-      this.storage = JSON.parse(localStorage.getItem('tasks-storage'));
-      this.gettasks();
-    }
+    this.storage = localStorage.getItem('tasks-storage') ? JSON.parse(localStorage.getItem('tasks-storage')) : [];
+    this.gettasks();
   }
 
-  static display(description, index) {
+  static display = (description, index) => {
     const todoList = document.querySelector('.todo-list');
     if (description !== '') {
       const templateHTML = `
@@ -29,19 +25,18 @@ class Engagement {
     }
   }
 
-  gettasks() {
+  gettasks = () => {
     if (!localStorage.getItem('tasks-storage')) {
       this.storage = [];
     } else {
-      const store = JSON.parse(localStorage.getItem('tasks-storage'));
-      store.map((tas) => {
+      this.storage.map((tas) => {
         Engagement.display(tas.description, tas.index);
         return true;
       });
     }
   }
 
-  editMode(e) {
+  editMode = (e) => {
     const item = e.target;
     if (item.classList[0] === 'taskOption') {
       item.parentElement.classList.add('editMode');
@@ -63,7 +58,7 @@ class Engagement {
             localStorage.setItem('tasks-storage', JSON.stringify(this.storage));
             const todoList = document.querySelector('.todo-list');
             todoList.innerHTML = '';
-            window.location.reload();
+            this.gettasks();
           });
         }
       }
@@ -95,7 +90,7 @@ class Engagement {
             localStorage.setItem('tasks-storage', JSON.stringify(this.storage));
             const todoList = document.querySelector('.todo-list');
             todoList.innerHTML = '';
-            window.location.reload();
+            this.gettasks();
           }
         }
       });
@@ -114,13 +109,14 @@ class Engagement {
           const clearall = document.querySelector('button[type=button]');
           clearall.addEventListener('click', () => {
             this.storage = this.storage.filter((check) => check.completed === false);
-            for (let i = 0; i < this.storage.length; i++) {
-              this.storage[i].index = i + 1;
-            }
+            this.storage.map((item, i) => {
+              item.index = i + 1;
+              return true;
+            });
             localStorage.setItem('tasks-storage', JSON.stringify(this.storage));
             const todoList = document.querySelector('.todo-list');
             todoList.innerHTML = '';
-            window.location.reload();
+            this.gettasks();
           });
         }
       }

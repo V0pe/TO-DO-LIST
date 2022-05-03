@@ -14,10 +14,13 @@ module.exports = {
     }),
   ],
   output: {
-    filename: 'main.js',
+    filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
-    
     clean: true,
+    publicPath: '/TO-DO-LIST/',
+  },
+  optimization: {
+    runtimeChunk: 'single',
   },
   module: {
     rules: [
@@ -31,4 +34,5 @@ module.exports = {
       },
     ],
   },
+
 };
