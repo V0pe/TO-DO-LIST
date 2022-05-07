@@ -12,7 +12,7 @@ click here to see deployed live version
 - [ ] Refresh tasks
 - [ ] Clear completed tasks
 
-### Live recording
+### Live
 - The live page can be accessed [here](https://v0pe.github.io/TO-DO-LIST/)
 
 ![image](https://user-images.githubusercontent.com/61356487/165974075-47909341-ece0-4e5f-902a-29dc6c8c0899.png)
