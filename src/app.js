@@ -107,6 +107,18 @@ class Engagement {
           this.storage[i].completed = !this.storage[i].completed;
           localStorage.setItem('tasks-storage', JSON.stringify(this.storage));
           const clearall = document.querySelector('button[type=button]');
+          window.addEventListener('load', () => {
+            this.storage = this.storage.filter((check) => check.completed === false);
+            this.storage.map((item, i) => {
+              item.index = i + 1;
+              return true;
+          });
+          localStorage.setItem('tasks-storage', JSON.stringify(this.storage));
+          const todoList = document.querySelector('.todo-list');
+          todoList.innerHTML = '';
+          this.gettasks();
+        });
+
           clearall.addEventListener('click', () => {
             this.storage = this.storage.filter((check) => check.completed === false);
             this.storage.map((item, i) => {
@@ -145,6 +157,17 @@ class Engagement {
       todoInput.focus();
     });
     todoList.addEventListener('click', this.editMode);
+    window.addEventListener('load', () => {
+      this.storage = this.storage.filter((check) => check.completed === false);
+      this.storage.map((item, i) => {
+        item.index = i + 1;
+        return true;
+    });
+    localStorage.setItem('tasks-storage', JSON.stringify(this.storage));
+    const todoList = document.querySelector('.todo-list');
+    todoList.innerHTML = '';
+    this.gettasks();
+  });
   }
 }
 
